@@ -10,8 +10,8 @@ br.select_form(nr=0)
 form = br.form
 
 # years=['1990','1991','1992',]
-allotyearstart=1900
-allotyrend=2017
+allotyearstart = 1900
+allotyrend = 2017
 years = []
 for i in range(allotyearstart,allotyrend):
     years.append("%s" % i)
@@ -25,7 +25,7 @@ for i in range(len(years)):
     br.form = form
     res = br.submit(name='btnSubmit')
     final = res.geturl()
-    print res.geturl()+""
+    # print res.geturl()+""
 
     soup = BeautifulSoup(br.response().read(), 'lxml')
     for mytable in soup.find_all('table'):
@@ -43,4 +43,4 @@ with open("iasofficerdata.csv", "wb") as output:
     writer.writerow(csv_columns)
     writer.writerows(officerdata)
 
-print "file closed successfully.."
+# print "file closed successfully.."
